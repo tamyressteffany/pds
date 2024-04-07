@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        /* Estilo para o painel "Entrar" */
+        .panel-entrar {
+            background-color: #000000; /* Cor de fundo do painel */
+            color: #fcfcfc; /* Cor do texto */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px; /* Espaçamento inferior */
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: "Times New Roman", Times, serif; /* Fonte Times New Roman */
+        }
+
+        /* Estilo para os campos de entrada */
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para o botão */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Estilo para o link */
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Painel "Entrar" com cor e fonte diferentes -->
+        <div class="panel-entrar">
+            Entrar
+        </div>
+
+        <!-- Formulário de login -->
+        <h2>Faça Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" required><br>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <!-- Link para a página de cadastro -->
+        <br>
+        <a href="Cadastrar.html">Ainda não tem uma conta? Cadastre-se aqui.</a>
+    </div>
+
+    <script>
+        // Função para lidar com o envio do formulário de login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Obter os valores dos campos de email e senha
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+
+            // Aqui você pode adicionar a lógica para verificar o email e senha no banco de dados ou armazenamento local
+
+            // Exemplo: verifica se o usuário e senha estão corretos
+            var cadastroJSON = localStorage.getItem('cadastro'); // Recupera o cadastro salvo
+            if (cadastroJSON) {
+                var cadastro = JSON.parse(cadastroJSON);
+                if (cadastro.email === email && cadastro.senha === senha) {
+                    alert('Login bem-sucedido!'); // Simula um login bem-sucedido
+                    window.location.href = 'LojaMaquiagem.html'; // Redireciona para a página inicial após o login
+                } else {
+                    alert('Email ou senha incorretos. Por favor, tente novamente.'); // Exibe uma mensagem de erro
+                }
+            } else {
+                alert('Nenhum usuário cadastrado. Por favor, cadastre-se primeiro.'); // Exibe uma mensagem se nenhum usuário estiver cadastrado
+            }
+        });
+    </script>
+</body>
+</html>
+

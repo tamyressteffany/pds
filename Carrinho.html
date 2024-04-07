@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1> Carrinho</h1>
+        <nav>
+            <ul>
+                <li><a href="PaginaInicial.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="Carrinho.html">Carrinho</a></li>
+                <li><a href="Cadastrar.html">Cadastre-se/Entre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Carrinho</title>
+            <link rel="stylesheet" href="styles.css">
+            <!-- Seu CSS -->
+        </head>
+        <body>
+            <div class="container">
+                <h2>Carrinho</h2>
+                <div id="carrinho"></div>
+            </div>
+        
+            <script>
+                // Recupera o carrinho do localStorage
+                let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        
+                // Elemento onde será exibido o conteúdo do carrinho
+                let carrinhoContainer = document.getElementById('carrinho');
+        
+                // Verifica se há produtos no carrinho
+                if (carrinho.length === 0) {
+                    carrinhoContainer.innerHTML = "<p>Carrinho vazio.</p>";
+                } else {
+                    // Se houver produtos, monta a lista
+                    let listaProdutos = "<ul>";
+                    carrinho.forEach(function(produto) {
+                        listaProdutos += "<li>" + produto.nome + " - R$" + produto.preco + "</li>";
+                    });
+                    listaProdutos += "</ul>";
+        
+                    carrinhoContainer.innerHTML = listaProdutos;
+                }
+            </script>
+        </body>
+        </html>
+        
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Maquiagens</title>
+            <link rel="stylesheet" href="styles.css">
+            <!-- Seu CSS -->
+            <style>
+                /* Estilo para o modal */
+                .modal {
+                    display: none; /* Inicialmente oculto */
+                    position: fixed; /* Fixa a posição */
+                    z-index: 1; /* Fica acima de todo o conteúdo */
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Largura total */
+                    height: 100%; /* Altura total */
+                    overflow: auto; /* Adiciona rolagem se necessário */
+                    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+                }
+                
+                /* Estilo para o conteúdo do modal */
+                .modal-content {
+                    background-color: #fefefe;
+                    margin: 15% auto; /* Centraliza verticalmente */
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 80%; /* Largura */
+                }
+                
+                /* Estilo para o botão de fechar */
+                .close {
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+                
+                .close:hover,
+                .close:focus {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- Seu conteúdo de produtos aqui -->
+        
+            <!-- Opções de pagamento -->
+            <div class="container">
+                <h2>Opções de Pagamento</h2>
+                <form id="form-pagamento">
+                    <label for="metodo">Método de Pagamento:</label>
+                    <select name="metodo" id="metodo">
+                        <option value="credito">Cartão de Crédito</option>
+                        <option value="debito">Cartão de Débito</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                    <button type="button" onclick="abrirModal()">Pagar</button>
+                </form>
+            </div>
+        
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <!-- Conteúdo do modal -->
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <div id="info-pagamento"></div> <!-- Div para exibir informações de pagamento -->
+                    <button type="submit" onclick="realizarPagamento()">Salvar</button>
+                </div>
+            </div>
+        
+           
+        
+            <script>
+                // Função para abrir o modal
+                function abrirModal() {
+                    // Exibe o modal
+                    document.getElementById('myModal').style.display = 'block';
+                    // Atualiza as informações de pagamento no modal
+                    exibirInfoPagamento();
+                }
+        
+                // Função para fechar o modal
+                function fecharModal() {
+                    // Oculta o modal
+                    document.getElementById('myModal').style.display = 'none';
+                }
+        
+                // Lista de produtos no carrinho
+                let produtosCarrinho = [];
+        
+                // Função para adicionar produtos ao carrinho
+                function adicionarCarrinho(nomeProduto, precoProduto) {
+                    produtosCarrinho.push({ nome: nomeProduto, preco: precoProduto });
+                    atualizarCarrinho();
+                }
+        
+                // Função para remover produtos do carrinho
+                function removerProdutoCarrinho(index) {
+                    produtosCarrinho.splice(index, 1);
+                    atualizarCarrinho();
+                }
+        
+                // Função para atualizar a exibição do carrinho na página
+                function atualizarCarrinho() {
+                    const listaCarrinho = document.getElementById('lista-carrinho');
+                    listaCarrinho.innerHTML = ''; // Limpa o conteúdo atual do carrinho
+        
+                    // Itera sobre os produtos no carrinho e os exibe na página
+                    produtosCarrinho.forEach((produto, index) => {
+                        const itemCarrinho = document.createElement('div');
+                        itemCarrinho.innerHTML = `
+                            <img src="${produto.imagem}" alt="${produto.nome}">
+                            <p>${produto.nome}</p>
+                            <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
+                            <button onclick="removerProdutoCarrinho(${index})">Remover</button>
+                        `;
+                        listaCarrinho.appendChild(itemCarrinho);
+                    });
+                }
+        
+                // Função para exibir informações de pagamento com base no método selecionado
+                function exibirInfoPagamento() {
+                    const metodoSelecionado = document.getElementById('metodo').value;
+                    const infoPagamentoDiv = document.getElementById('info-pagamento');
+        
+                    if (metodoSelecionado === 'credito' || metodoSelecionado === 'debito') {
+                        infoPagamentoDiv.innerHTML = `
+                            <label for="numero-cartao">Número do Cartão:</label>
+                            <input type="text" id="numero-cartao" name="numero-cartao" required><br>
+                            <label for="validade">Data de Validade:</label>
+                            <input type="text" id="validade" name="validade" required>
+                        `;
+                    } else if (metodoSelecionado === 'boleto') {
+                        infoPagamentoDiv.innerHTML = `
+                            <label for="cpf">CPF:</label>
+                            <input type="text" id="cpf" name="cpf" required><br>
+                        `;
+                    } else {
+                        infoPagamentoDiv.innerHTML = ''; // Limpa as informações de pagamento se nenhum método estiver selecionado
+                    }
+                }
+        
+                // Função para realizar o pagamento
+                function realizarPagamento() {
+                    // Aqui você pode colocar a lógica para processar o pagamento
+                    // Neste exemplo, apenas exibimos uma mensagem
+                    alert('Pagamento realizado com sucesso!');
+                    // Fecha o modal após o pagamento
+                    fecharModal();
+                }
+            </script>
+        </body>
+        </html>
+        <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Seu CSS -->
+    <style>
+        /* Estilo para os botões de remover */
+        .remover-btn {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2>Carrinho</h2>
+            <div id="lista-carrinho"></div>
+        </div>
+    
+        <script>
+            
+    
+            // Verifica se há produtos no carrinho
+            if (carrinho.length === 0) {
+                carrinhoContainer.innerHTML = "<p>Carrinho vazio.</p>";
+            } else {
+                // Se houver produtos, monta a lista
+                let listaProdutos = "<ul>";
+                carrinho.forEach(function(produto, index) {
+                    listaProdutos += "<li>" + produto.nome + " - R$" + produto.preco + " <button class='remover-btn' onclick='removerProdutoCarrinho(" + index + ")'>Remover</button></li>";
+                });
+                listaProdutos += "</ul>";
+    
+                carrinhoContainer.innerHTML = listaProdutos;
+            }
+    
+            // Função para remover produtos do carrinho
+            function removerProdutoCarrinho(index) {
+                carrinho.splice(index, 1);
+                // Atualiza o localStorage
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                // Atualiza a exibição do carrinho
+                if (carrinho.length === 0) {
+                    carrinhoContainer.innerHTML = "<p>Carrinho vazio.</p>";
+                } else {
+                    let listaProdutos = "<ul>";
+                    carrinho.forEach(function(produto, index) {
+                        listaProdutos += "<li>" + produto.nome + " - R$" + produto.preco + " <button class='remover-btn' onclick='removerProdutoCarrinho(" + index + ")'>Remover</button></li>";
+                    });
+                    listaProdutos += "</ul>";
+    
+                    carrinhoContainer.innerHTML = listaProdutos;
+                }
+            }
+        </script>
+    </body>
+    </html>
+        
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        footer {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        </style>
+    
+    

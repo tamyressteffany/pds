@@ -25,20 +25,20 @@
             font-family: "Times New Roman", Times, serif;
         }
 
-        /* Estilo para o painel "Entrar" */
+        
         .panel-entrar {
-            background-color: #000000; /* Cor de fundo do painel */
-            color: #fcfcfc; /* Cor do texto */
+            background-color: #000000; 
+            color: #fcfcfc; 
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 30px; /* Espaçamento inferior */
+            margin-bottom: 30px; 
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
-            font-family: "Times New Roman", Times, serif; /* Fonte Times New Roman */
+            font-family: "Times New Roman", Times, serif; 
         }
 
-        /* Estilo para os campos de entrada */
+
         input {
             width: 100%;
             margin-bottom: 10px;
@@ -46,7 +46,7 @@
             box-sizing: border-box;
         }
 
-        /* Estilo para o botão */
+        
         button {
             width: 100%;
             padding: 10px;
@@ -62,7 +62,7 @@
             background-color: #555;
         }
 
-        /* Estilo para o link */
+        
         a {
             color: #333;
             text-decoration: none;
@@ -75,12 +75,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- Painel "Entrar" com cor e fonte diferentes -->
+        
         <div class="panel-entrar">
             Entrar
         </div>
 
-        <!-- Formulário de login -->
+        
         <h2>Faça Login</h2>
         <form id="loginForm">
             <label for="email">Email:</label><br>
@@ -90,34 +90,32 @@
             <button type="submit">Entrar</button>
         </form>
 
-        <!-- Link para a página de cadastro -->
+        
         <br>
         <a href="Cadastrar.html">Ainda não tem uma conta? Cadastre-se aqui.</a>
     </div>
 
     <script>
-        // Função para lidar com o envio do formulário de login
+        
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
+            event.preventDefault(); 
 
-            // Obter os valores dos campos de email e senha
+            
             var email = document.getElementById('email').value;
             var senha = document.getElementById('senha').value;
 
-            // Aqui você pode adicionar a lógica para verificar o email e senha no banco de dados ou armazenamento local
-
-            // Exemplo: verifica se o usuário e senha estão corretos
-            var cadastroJSON = localStorage.getItem('cadastro'); // Recupera o cadastro salvo
+        
+            var cadastroJSON = localStorage.getItem('cadastro'); 
             if (cadastroJSON) {
                 var cadastro = JSON.parse(cadastroJSON);
                 if (cadastro.email === email && cadastro.senha === senha) {
-                    alert('Login bem-sucedido!'); // Simula um login bem-sucedido
-                    window.location.href = 'LojaMaquiagem.html'; // Redireciona para a página inicial após o login
+                    alert('Login bem-sucedido!'); 
+                    window.location.href = 'LojaMaquiagem.html'; 
                 } else {
-                    alert('Email ou senha incorretos. Por favor, tente novamente.'); // Exibe uma mensagem de erro
+                    alert('Email ou senha incorretos. Por favor, tente novamente.'); 
                 }
             } else {
-                alert('Nenhum usuário cadastrado. Por favor, cadastre-se primeiro.'); // Exibe uma mensagem se nenhum usuário estiver cadastrado
+                alert('Nenhum usuário cadastrado. Por favor, cadastre-se primeiro.'); 
             }
         });
     </script>

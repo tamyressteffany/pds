@@ -25,20 +25,20 @@
             font-family: "Times New Roman", Times, serif;
         }
 
-        /* Estilo para o painel "Cadastrar" */
+    
         .panel-cadastrar {
-            background-color: #000000; /* Cor de fundo do painel */
-            color: #fcfcfc; /* Cor do texto */
+            background-color: #000000; 
+            color: #fcfcfc; 
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 30px; /* Espaçamento inferior */
+            margin-bottom: 30px;
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
-            font-family: "Times New Roman", Times, serif; /* Fonte Times New Roman */
+            font-family: "Times New Roman", Times, serif; 
         }
 
-        /* Estilo para o link de login */
+        
         a {
             color: #333;
             text-decoration: none;
@@ -48,7 +48,7 @@
             color: #555;
         }
 
-        /* Estilo para os campos de entrada */
+        
         input {
             width: 100%;
             margin-bottom: 10px;
@@ -56,7 +56,7 @@
             box-sizing: border-box;
         }
 
-        /* Estilo para o botão */
+        
         button {
             width: 100%;
             padding: 10px;
@@ -75,12 +75,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- Painel "Cadastrar" com cor e fonte diferentes -->
+        
         <div class="panel-cadastrar">
             Cadastrar
         </div>
 
-        <!-- Formulário de cadastro -->
+        
         <h2>Cadastre-se</h2>
         <form id="cadastroForm">
             <label for="nome">Nome Completo:</label><br>
@@ -92,42 +92,42 @@
             <button type="submit">Cadastrar</button>
         </form>
 
-        <!-- Mensagem de feedback do cadastro -->
+        
         <div id="mensagem"></div>
 
-        <!-- Link para a página de login -->
+    
         <br>
         <a href="login.html">Já tem uma conta? Faça login aqui.</a>
 
-        <!-- Link para voltar -->
+        
         <br>
         <a href="LojaMaquiagem.html">Voltar</a>
     </div>
 
     <script>
-        // Função para salvar o cadastro no armazenamento local do navegador
+        
         document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
+            event.preventDefault(); 
 
-            // Obtém os valores dos campos
+            
             var nome = document.getElementById('nome').value;
             var email = document.getElementById('email').value;
             var senha = document.getElementById('senha').value;
 
-            // Cria um objeto para representar o cadastro
+            
             var cadastro = {
                 nome: nome,
                 email: email,
                 senha: senha
             };
 
-            // Converte o objeto para JSON
+            
             var cadastroJSON = JSON.stringify(cadastro);
 
-            // Salva o cadastro no armazenamento local
+        
             localStorage.setItem('cadastro', cadastroJSON);
 
-            // Exibe mensagem de sucesso
+            
             document.getElementById('mensagem').innerText = 'Cadastro salvo com sucesso!';
         });
     </script>

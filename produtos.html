@@ -6,48 +6,48 @@
     <title>Maquiagens</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo para a lista de produtos */
+        
         .produtos {
-            display: flex; /* Layout em linha */
-            justify-content: space-around; /* Distribui os produtos igualmente ao longo do espaço disponível */
-            flex-wrap: wrap; /* Quebra para a próxima linha conforme necessário */
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
         }
 
-        /* Estilo para cada produto */
+        
         .produto {
-            width: calc(30% - 20px); /* Define a largura de cada produto com margem */
-            margin: 10px; /* Espaçamento entre os produtos */
-            text-align: center; /* Centraliza o conteúdo */
-            border: 1px solid #ccc; /* Adiciona uma borda para separar os produtos */
-            border-radius: 5px; /* Borda arredondada */
-            padding: 10px; /* Espaçamento interno */
+            width: calc(30% - 20px); 
+            margin: 10px; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            padding: 10px; 
         }
 
-        /* Estilo para a imagem do produto */
+        
         .produto img {
-            width: 100%; /* Imagem ocupa toda a largura do contêiner */
-            height: auto; /* Altura automática para manter a proporção */
-            border-radius: 5px; /* Borda arredondada */
+            width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
         }
 
-        /* Estilo para o botão "Adicionar ao Carrinho" */
+       
         .add-carrinho {
-            background-color: #4CAF50; /* Cor de fundo verde */
-            color: white; /* Cor do texto branco */
-            padding: 10px 20px; /* Espaçamento interno */
-            border: none; /* Sem borda */
-            border-radius: 5px; /* Borda arredondada */
-            text-align: center; /* Centraliza o texto */
-            text-decoration: none; /* Sem sublinhado */
-            display: block; /* Exibe como bloco */
-            cursor: pointer; /* Altera o cursor para indicar um botão clicável */
-            margin-top: 10px; /* Espaçamento superior */
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            text-align: center; 
+            text-decoration: none; 
+            display: block; 
+            cursor: pointer; 
+            margin-top: 10px; 
         }
 
-        /* Estilo para o link "Ver mais" */
+        
         .ver-mais {
-            color: #008CBA; /* Cor do texto azul */
-            text-decoration: none; /* Sem sublinhado */
+            color: #008CBA; 
+            text-decoration: none; 
         }
     </style>
 </head>
@@ -55,9 +55,9 @@
 
     <div class="container">
         <h2>Produtos</h2>
-        <!-- Lista de produtos -->
+        
         <div class="produtos">
-            <!-- Produto 1 -->
+            
             <div class="produto">
                 <img src="https://marimaria.vteximg.com.br/arquivos/ids/164541/Batom-matte-liquido-creamy-matte-lavish-mari-maria-makeup.png?v=638394677725630000" alt="Base">
                 <h3>Batom - Mari Maria Makeup </h3>
@@ -65,7 +65,7 @@
                 <p>Preço: R$ 30,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Batom')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 2 -->
+           
             <div class="produto">
                 <img src="https://down-br.img.susercontent.com/file/32ba72472f6927108ab27c34e264a3be" alt="Paleta de sombras">
                 <h3> Paletas de Sombras Ludurana Diversas </h3>
@@ -73,7 +73,7 @@
                 <p>Preço: R$ 20,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Paleta')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 3 -->
+            
             <div class="produto">
                 <img src="https://ellebrasil-wp-images.s3.amazonaws.com/2022/08/image-1024.jpg" alt="Base">
                 <h3> Base - Bruna Tavares </h3>
@@ -81,7 +81,7 @@
                 <p>Preço: R$ 50,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Base')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 4 -->
+            
             <div class="produto">
                 <img src="https://m.media-amazon.com/images/I/41qtARah1QS._AC_UF1000,1000_QL80_.jpg" alt="Base">
                 <h3> Base e Corretivo Matte Velvet Skin Amendoa, Mari Maria </h3>
@@ -89,7 +89,7 @@
                 <p>Preço: R$ 55,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Base')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 5 -->
+            
             <div class="produto">
                 <img src="https://images.tcdn.com.br/img/img_prod/929629/bt_powder_po_compacto_bruna_tavares_109_1_1704ba2d982df852178e5ed0fd1768ac.jpg" alt="Pó Compacto">
                 <h3> BT POWDER PÓ COMPACTO - BRUNA TAVARES </h3>
@@ -97,7 +97,7 @@
                 <p>Preço: R$ 30,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Pó Compacto')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 6 -->
+            
             <div class="produto">
                 <img src="https://oceane.vtexassets.com/arquivos/ids/196383/AP2000689CR80_iluminador_em_po_rosa_mariana_saad_skin_shine_rose_gold_6g_1.jpg?v=637667202405330000" alt="Iluminador">
                 <h3> Iluminador Facial Rosa Mariana Saad By Océane </h3>
@@ -105,7 +105,7 @@
                 <p>Preço: R$ 20,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Iluminador')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 7 -->
+            
             <div class="produto">
                 <img src="https://d358a814b78lcf.cloudfront.net/Custom/Content/Products/98/63/986331_lapis-de-olho-preto-c-apontador-mia-make-949_m1_636802119911908978.jpg" alt="Lapis de Olho">
                 <h3> Lápis de Olho Preto c/ Apontador Mia Make </h3>
@@ -113,7 +113,7 @@
                 <p>Preço: R$ 10,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Lapis de Olho')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 8 -->
+            
             <div class="produto">
                 <img src="https://static.makieoficial.com.br//produto/diluidor-de-maquiagem-fechado_20806_254.jpg" alt="Diluidor">
                 <h3> DILUIDOR DE MAQUIAGEM - 30ML </h3>
@@ -121,7 +121,7 @@
                 <p>Preço: R$ 10,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Diluidor')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Produto 9 -->
+            
             <div class="produto">
                 <img src="https://d531mnmtf91fa.cloudfront.net/Custom/Content/Products/10/02/1002799_mascara-de-cilios-2-em-1-bella-femme-5620_m2_636856667072563830.jpg" alt="Mascara de Cilios">
                 <h3> Mascara de Cilios </h3>
@@ -129,7 +129,7 @@
                 <p>Preço: R$ 10,00</p>
                 <button class="add-carrinho" onclick="adicionarCarrinho('Mascara de Cilios')">Adicionar ao Carrinho</button>
             </div>
-            <!-- Adicione mais produtos aqui -->
+            
         </div>
     </div>
 
@@ -145,23 +145,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquiagens</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Seu CSS -->
+    
 </head>
 <body>
-    <!-- Seu conteúdo de produtos aqui -->
-
+    
     <script>
         function adicionarCarrinho(nomeProduto, precoProduto) {
-            // Verifica se já existe algum carrinho no localStorage
+            
             let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-            // Adiciona o produto ao carrinho
+           
             carrinho.push({ nome: nomeProduto, preco: precoProduto });
 
-            // Salva o carrinho atualizado no localStorage
+            
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-            // Redireciona para a página do carrinho
+            
             window.location.href = 'carrinho.html';
         }
     </script>
